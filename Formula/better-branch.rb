@@ -1,13 +1,15 @@
 class BetterBranch < Formula
   desc "An interactive, fuzzy-finding terminal UI for switching Git branches"
   homepage "https://github.com/leomcl/better-branch"
-  url "https://github.com/leomcl/better-branch/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "4df05c2fcd9c02218b90678ae69d174b38ad4d71d4a11e50cd10103ec6fa76f8"
+  url "https://github.com/leomcl/better-branch/releases/download/v0.1.0/better-branch-v0.1.0-aarch64-apple-darwin.tar.gz"
+  sha256 "50f953865b3864496f3fe65e3eb17a76d45f168eacbb156ea95a45b1209ee12a"
   license "MIT"
 
-  depends_on "rust" => :build
-
   def install
-    system "cargo", "install", *std_cargo_args
+    bin.install "better-branch"
+  end
+
+  test do
+    system "#{bin}/better-branch", "--version"
   end
 end
