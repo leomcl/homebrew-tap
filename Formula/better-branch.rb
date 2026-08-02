@@ -1,17 +1,22 @@
 class BetterBranch < Formula
   desc "An interactive, fuzzy-finding terminal UI for switching Git branches"
   homepage "https://github.com/leomcl/better-branch"
-  version "v0.1.1"
+  version "v0.1.2"
+  license "MIT"
 
   if Hardware::CPU.arm?
-    url "https://github.com/leomcl/better-branch/releases/download/v0.1.1/better-branch-aarch64-apple-darwin.tar.gz"
-    sha256 "d6bb184e4491de799419f8331fb65796a7acae5f9f2aac9858e407e6c4c0524e"
+    url "https://github.com/leomcl/better-branch/releases/download/v0.1.2/better-branch-aarch64-apple-darwin.tar.gz"
+    sha256 "d1a17e12c8e51e766bd0c70d51131d5aa5975fe042e0e17255c61e499913a0aa"
   else
-    url "https://github.com/leomcl/better-branch/releases/download/v0.1.1/better-branch-x86_64-apple-darwin.tar.gz"
-    sha256 "00057baec90300a9150a02f20690b28efc6176165da0c55b94efeabe9557ebec"
+    url "https://github.com/leomcl/better-branch/releases/download/v0.1.2/better-branch-x86_64-apple-darwin.tar.gz"
+    sha256 "fd0aec36860f66fded5e13c4586716d347bd49adc0e52bb64103e0b6b880e8dd"
   end
 
   def install
     bin.install "better-branch"
+  end
+
+  test do
+    system "#{bin}/better-branch", "--version"
   end
 end
